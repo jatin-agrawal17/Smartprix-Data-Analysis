@@ -9,17 +9,17 @@ driver.get('https://www.smartprix.com/mobiles')
 
 wait = WebDriverWait(driver, 20)
 
-# ✅ Click "Exclude Out Of Stock"
+#Click "Exclude Out Of Stock"
 checkbox1 = wait.until(EC.presence_of_element_located((By.XPATH, '//label[contains(., "Exclude Out Of Stock")]/input')))
 driver.execute_script("arguments[0].click();", checkbox1)
 print("✅ First checkbox clicked.")
 
-# ✅ Click "Exclude Upcoming"
+#Click "Exclude Upcoming"
 exclude_upcoming = wait.until(EC.presence_of_element_located((By.XPATH, '//label[contains(., "Exclude Upcoming")]/input')))
 driver.execute_script("arguments[0].click();", exclude_upcoming)
 print("✅ 'Exclude Upcoming' clicked.")
 
-# ✅ Scroll and auto-click Load More
+# Scroll and auto-click Load More
 old_height = driver.execute_script("return document.body.scrollHeight")
 counter = 1
 
@@ -42,7 +42,7 @@ while True:
     counter += 1
 
     if new_height == old_height:
-        print("✅ End reached.")
+        print("End reached.")
         break
     old_height = new_height
 
